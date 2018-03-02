@@ -1,0 +1,62 @@
+// Place all the styles related to the Articles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.article_content{
+    padding: 5%;
+
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+    box-shadow: 5px 5px 1px gray;
+
+    h1{
+      text-align: center;
+      text-decoration: underline;
+    }
+
+    .article_item{
+      padding: 1.5%;
+      margin: 1%;
+
+      a {
+        color: black;
+      }
+      a:hover{
+        color: black;
+        background-color: white;
+      }
+    }
+
+    .article_item:nth-child(even){
+      background-color: rgb(12, 12, 12);
+      color: white;
+      padding: 1.5%;
+      margin: 1%;
+
+      a{
+        color: white;
+        background-color: black;
+      }
+    }
+}
+
+.show_article_content{
+    width: 800px;
+    margin: 0 auto;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+    box-shadow: 5px 5px 1px gray;
+    padding: 2.5% 10% 10%;
+    h1{
+      text-align: center;
+    }
+}
+
+.article_buttons{
+  width: 100%;
+  height: 50px;
+  margin: 2.5% 0;
+  padding: 2.5% 5% 0;
+  text-align: center;
+  border: 1px solid black;
+}

@@ -1,0 +1,14 @@
+<div class="show_article_content">
+
+  <h1><%= @article.title %></h1>
+  <div class="notice_area">
+    <p id="notice"><%= notice %></p>
+  </div>
+  <br>
+  <br>
+  <p><%= @article.body %></p>
+  <div class="article_buttons">
+    <%= link_to "Edit", edit_article_path(@article.id) %>
+    <%= link_to "Delete", article_path, method: :delete, data: {confirm: "Are you sure?"} %>
+  </div>
+</div>
