@@ -9,6 +9,8 @@
       <h2><%= link_to article.title, article_show_path(article.id) %></h2>
       <br>
       <p><%= article.body %>
+      <br><br>
+      <p><strong>Category:</strong> <%= article.category %></p>
     </div>
   <% end %>
 </div>
