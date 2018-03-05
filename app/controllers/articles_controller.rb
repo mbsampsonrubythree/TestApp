@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :set_article, only: [:show, :edit, :update, :destroy, :toggle_status]
 
   # GET /articles
   # GET /articles.json
@@ -21,6 +21,16 @@ class ArticlesController < ApplicationController
   def edit
   end
 
+  # Toggle status
+  def toggle_status
+    if @article.published?
+      @article.draft!
+    elsif @article.draft?
+      @article.published!
+    end
+    redirect_to articles_url, notice: "Artcile status has been updated."
+  end
+
   # POST /articles
   # POST /articles.json
   def create
@@ -28,7 +38,7 @@ class ArticlesController < ApplicationController
 
     respond_to do |format|
       if @article.save
-        format.html { redirect_to @article, notice: 'Article was successfully created.' }
+        format.html { redirect_to article_show_path(@article.id), notice: 'Article was successfully created.' }
         format.json { render :show, status: :created, location: @article }
       else
         format.html { render :new }
@@ -42,7 +52,7 @@ class ArticlesController < ApplicationController
   def update
     respond_to do |format|
       if @article.update(article_params)
-        format.html { redirect_to @article, notice: 'Article was successfully updated.' }
+        format.html { redirect_to article_show_path, notice: 'Article was successfully updated.' }
         format.json { render :show, status: :ok, location: @article }
       else
         format.html { render :edit }
@@ -69,6 +79,6 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:title, :body)
+      params.require(:article).permit(:title, :body, :category)
     end
 end
