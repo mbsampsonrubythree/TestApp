@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :articles
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :articles, except: [:show]
+
+  get 'article/:id', to: 'articles#show', as: 'article_show'
+
   root to: "articles#index"
 end
