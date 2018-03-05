@@ -11,6 +11,7 @@
       <p><%= article.body %>
       <br><br>
       <p><strong>Category:</strong> <%= article.category %></p>
+      <p><strong>Status:</strong> <%= link_to article.status, toggle_status_article_path(article.id) %></p>
     </div>
   <% end %>
 </div>

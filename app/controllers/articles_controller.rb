@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :set_article, only: [:show, :edit, :update, :destroy, :toggle_status]
 
   # GET /articles
   # GET /articles.json
@@ -19,6 +19,16 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1/edit
   def edit
+  end
+
+  # Toggle status
+  def toggle_status
+    if @article.published?
+      @article.draft!
+    elsif @article.draft?
+      @article.published!
+    end
+    redirect_to articles_url, notice: "Artcile status has been updated."
   end
 
   # POST /articles

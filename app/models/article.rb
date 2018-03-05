@@ -6,4 +6,9 @@ class Article < ApplicationRecord
     news: 3,
     space: 4
   }
+
+  enum status: {
+    draft: 0,
+    published: 1
+  }
 end
