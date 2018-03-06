@@ -1,1 +1,27 @@
-<h1>Science</h1>
+<div class="article_content">
+  <h1>Science</h1>
+  <div class="notice_area">
+    <p id="notice"><%= notice %></p>
+  </div>
+  <div class="category_content">
+    <span class="category_item"><%= link_to "general", general_show_path %></span>
+    <span class="category_item"><%= link_to "science", science_show_path %></span>
+    <span class="category_item"><%= link_to "news", news_show_path %></span>
+    <span class="category_item"><%= link_to "politics", politics_show_path %> </span>
+    <span class="category_item"><%= link_to "space", space_show_path %> </span>
+  </div>
+  <% @articles.each do |article| %>
+    <% if article.category === "science" %>
+      <div class="article_item">
+        <h2><%= link_to article.title, article_show_path(article.id) %></h2>
+        <br>
+        <p><%= article.body %>
+        <br><br>
+
+        <p><strong>Category:</strong> <%= article.category %></p>
+        <p><strong>Status:</strong> <%= link_to article.status, toggle_status_article_path(article.id) %></p>
+        <br>
+      </div>
+    <% end %>
+  <% end %>
+</div>
