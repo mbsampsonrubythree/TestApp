@@ -1,6 +1,5 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy, :toggle_status]
-  before_action :set_articles, only: [:general, :science, :politics, :news, :space]
 
   # GET /articles
   # GET /articles.json
@@ -15,18 +14,23 @@ class ArticlesController < ApplicationController
 
   # Category Section
   def general
+    @articles = Article.where(category: __method__.to_s)
   end
 
   def science
+    @articles = Article.where(category: "science")
   end
 
   def politics
+    @articles = Article.where(category: "politics")
   end
 
   def news
+    @articles = Article.where(category: "news")
   end
 
   def space
+    @articles = Article.where(category: "space")
   end
 
   # GET /articles/new
@@ -93,10 +97,6 @@ class ArticlesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_article
       @article = Article.find(params[:id])
-    end
-
-    def set_articles
-      @articles = Article.all
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
