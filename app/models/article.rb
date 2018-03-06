@@ -21,5 +21,25 @@ class Article < ApplicationRecord
     published: 1
   }
 
+  def self.general
+    where(category: 'general')
+  end
+
+  def self.science
+    where(category: 'science')
+  end
+
+  def self.politics
+    where(category: 'politics')
+  end
+
+  def self.news
+    where(category: 'news')
+  end
+
+  def self.space
+    where(category: 'space')
+  end
+
   validates_presence_of :title, :body, :category, :status
 end

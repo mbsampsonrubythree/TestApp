@@ -14,23 +14,23 @@ class ArticlesController < ApplicationController
 
   # Category Section
   def general
-    @articles = Article.where(category: __method__.to_s)
+    @articles = Article.general
   end
 
   def science
-    @articles = Article.where(category: "science")
+    @articles = Article.science
   end
 
   def politics
-    @articles = Article.where(category: "politics")
+    @articles = Article.politics
   end
 
   def news
-    @articles = Article.where(category: "news")
+    @articles = Article.news
   end
 
   def space
-    @articles = Article.where(category: "space")
+    @articles = Article.space
   end
 
   # GET /articles/new
