@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy, :toggle_status]
+  before_action :set_articles, only: [:general, :science, :politics, :news, :space]
 
   # GET /articles
   # GET /articles.json
@@ -10,6 +11,22 @@ class ArticlesController < ApplicationController
   # GET /articles/1
   # GET /articles/1.json
   def show
+  end
+
+  # Category Section
+  def general
+  end
+
+  def science
+  end
+
+  def politics
+  end
+
+  def news
+  end
+
+  def space
   end
 
   # GET /articles/new
@@ -30,6 +47,7 @@ class ArticlesController < ApplicationController
     end
     redirect_to articles_url, notice: "Artcile status has been updated."
   end
+
 
   # POST /articles
   # POST /articles.json
@@ -75,6 +93,10 @@ class ArticlesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_article
       @article = Article.find(params[:id])
+    end
+
+    def set_articles
+      @articles = Article.all
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

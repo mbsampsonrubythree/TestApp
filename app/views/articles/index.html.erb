@@ -3,6 +3,13 @@
   <div class="notice_area">
     <p id="notice"><%= notice %></p>
   </div>
+  <div class="category_content">
+    <span class="category_item"><%= link_to "general", general_show_path %></span>
+    <span class="category_item"><%= link_to "science", science_show_path %></span>
+    <span class="category_item"><%= link_to "politics", politics_show_path %> </span>
+    <span class="category_item"><%= link_to "news", news_show_path %></span>
+    <span class="category_item"><%= link_to "space", space_show_path %></span>
+  </div>
 
   <% @articles.each do |article| %>
     <div class="article_item">

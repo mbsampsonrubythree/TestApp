@@ -9,13 +9,19 @@
     border-bottom: 2px solid black;
     box-shadow: 5px 5px 1px gray;
 
+    letter-spacing: 0.5px;
+
     h1{
       text-align: center;
       text-decoration: underline;
     }
 
+    p {
+      font-family: monospace;
+    }
+
     .article_item{
-      padding: 1.5%;
+      padding: 1.5% 4%;
       margin: 1%;
       background-color: white;
 
@@ -31,12 +37,28 @@
     .article_item:nth-child(even){
       background-color: rgb(12, 12, 12);
       color: white;
-      padding: 1.5%;
+      padding: 1.5% 4%;
       margin: 1%;
 
       a{
         color: white;
         background-color: black;
+      }
+    }
+    .category_content{
+      width: 50%;
+      margin: 0 auto 35px;
+      text-align: center;
+      .category_item{
+        padding: 0 15px;
+        text-transform: uppercase;
+
+        a {
+          color: black;
+        }
+        a:hover{
+          color: white;
+        }
       }
     }
 
