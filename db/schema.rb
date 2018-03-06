@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20180306192420) do
     t.datetime "updated_at", null: false
     t.integer "category", default: 0
     t.integer "status", default: 0
-    t.integer "author_id"
+    t.integer "author_id", default: 0
     t.index ["author_id"], name: "index_articles_on_author_id"
   end
 
