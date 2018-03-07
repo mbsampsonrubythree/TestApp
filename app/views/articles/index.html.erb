@@ -14,11 +14,17 @@
   <% @articles.each do |article| %>
     <div class="article_item">
       <h2><%= link_to article.title, article_show_path(article.id) %></h2>
+      <% @authors.each do |author| %>
+        <% if author.id === article.author_id %>
+          <h4>by <%= author.name %></h4>
+        <% end %>
+      <% end %>
       <br>
       <p><%= article.body %>
       <br><br>
       <p><strong>Category:</strong> <%= article.category %></p>
       <p><strong>Status:</strong> <%= link_to article.status, toggle_status_article_path(article.id) %></p>
+
     </div>
   <% end %>
 </div>

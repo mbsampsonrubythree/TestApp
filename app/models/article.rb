@@ -1,5 +1,6 @@
 class Article < ApplicationRecord
   belongs_to :author, optional: true
+
   enum category: {
     general: 0,
     science: 1,
@@ -33,5 +34,5 @@ class Article < ApplicationRecord
     where(category: 'space')
   end
 
-  validates_presence_of :title, :body, :category, :status
+  validates_presence_of :title, :body, :category, :status, :author_id
 end

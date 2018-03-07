@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy, :toggle_status]
-  before_action :set_authors, only: [:general, :science, :politics, :news, :space]
+  before_action :set_authors, only: [:index, :general, :science, :politics, :news, :space]
 
   # GET /articles
   # GET /articles.json
