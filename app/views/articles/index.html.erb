@@ -14,11 +14,7 @@
   <% @articles.each do |article| %>
     <div class="article_item">
       <h2><%= link_to article.title, article_show_path(article.id) %></h2>
-      <% @authors.each do |author| %>
-        <% if author.id === article.author_id %>
-          <h4>by <%= author.name %></h4>
-        <% end %>
-      <% end %>
+      <h4><%= article.author.name %></h4>
       <br>
       <p><%= article.body %>
       <br><br>

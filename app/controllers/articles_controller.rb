@@ -1,11 +1,10 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy, :toggle_status]
-  before_action :set_authors, only: [:index, :general, :science, :politics, :news, :space]
 
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.all
+    @articles = Article.includes(:author)
   end
 
   # GET /articles/1
@@ -37,6 +36,7 @@ class ArticlesController < ApplicationController
   # GET /articles/new
   def new
     @article = Article.new
+    @authors = Author.all
   end
 
   # GET /articles/1/edit
@@ -98,10 +98,6 @@ class ArticlesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_article
       @article = Article.find(params[:id])
-    end
-
-    def set_authors
-      @authors = Author.all
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

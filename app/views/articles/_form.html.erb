@@ -26,6 +26,13 @@
     <%= form.text_area :category, id: :article_category %>
   </div>
 
+  <div class="field">
+    <% @authors.each do |author| %>
+      <%= form.radio_button :author_id, author.name  %>
+      <%= label :author_id, author.name %>
+    <% end %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
